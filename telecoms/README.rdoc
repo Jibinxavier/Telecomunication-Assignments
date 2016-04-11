@@ -1,28 +1,12 @@
 == README
+This app was developed for our CS3031 Advanced Telecommunication. Overall intent of the app was to encrypt the files 
+before uploading to Dropbox and only users in the shared group can decrypt the file
+This app allows users to:- 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Connect to dropbox
 
-Things you may want to cover:
+* Encrypt files before uploading files to Dropbox
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Share files with users of the app so that they can decrypt the file. Any one outside group can not decrpt
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
