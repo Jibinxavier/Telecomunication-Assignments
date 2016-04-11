@@ -1,0 +1,7 @@
+                         false
+                          /   \
+                      [a]       [b,c]
+                     /          /     \   \
+                    d       [e,d,f] [e,g]  [e,h] 
+Conflicts :  [d] [e,d,f] [e,g]  [e,h]
+Minimal:  [d] [e,g]  [e,h]  

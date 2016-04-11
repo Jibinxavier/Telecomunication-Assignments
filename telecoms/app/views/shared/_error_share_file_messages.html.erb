@@ -1,0 +1,12 @@
+<% if @share.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      <% @share.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </div>
+    <ul>
+    
+    </ul>
+  </div>
+<% end %>

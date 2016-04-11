@@ -1,0 +1,18 @@
+<% if signed_in? %>
+  <div class="row">
+    
+     
+  </div>
+<% else %>
+  <div class="center hero-unit">
+    <h1>Welcome to the telecoms</h1>
+
+    <h2>
+      
+    </h2>
+
+    <%= link_to "Sign up now!", signup_path,
+                                class: "btn btn-large btn-primary" %>
+  </div>
+ 
+<% end %>

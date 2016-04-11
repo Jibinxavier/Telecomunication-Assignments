@@ -1,0 +1,25 @@
+<% provide(:title, 'Shared with') %>
+<h1>All files</h1>
+<div class="row">
+    <li><%= link_to "Share files",new_user_share_file_path(current_user) %></li>
+  <div class="col-md-6 col-md-offset-3">
+   <table>                         
+  <tr>                          
+    <th>Share</th>
+    <th>File</th>
+  </tr>
+    &nbsp;
+    <% for i in 0..@users.length-1%>  
+    
+     <tr class="table">
+       <td><%=@users[i]['name']%></td>  
+      
+       <td><%= @files[i]['path'].to_s %></td> 
+       <td><%= link_to "Delete", user_share_file_path(current_user, @files[i]['id']), method: :delete, data: { confirm: 'Are you certain you want to unshare this?' }%></td>
+      </tr>
+    <%end%>
+</table>      
+
+     
+  </div>
+</div>

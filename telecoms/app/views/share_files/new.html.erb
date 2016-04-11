@@ -1,0 +1,18 @@
+<h1>Share files</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%=  form_for(:share_file, url: user_share_files_path)   do |f| %>
+      <%= render 'shared/error_share_file_messages' %>
+
+      <%= f.label :file_id,'File' %>
+       <%= f.collection_select :file_id, DropboxFile.order(:path).where(user_id: current_user.id),:id,:path, include_blank: true , class: 'form-control'%>
+
+      <%= f.label :shared_with_id,'User' %>
+      <%= f.collection_select :shared_with_id, User.order(:name),:id,:name, include_blank: true , class: 'form-control'%>
+       <%= f.submit "Share", class: "btn btn-primary" %>
+    <% end %>
+
+     
+  </div>
+</div>

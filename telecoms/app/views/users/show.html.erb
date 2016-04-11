@@ -1,0 +1,59 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+         
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+  <div class="col-md-4">
+  
+  </div>
+ <div class="col-md-4">
+    <% unless @dropbox %>
+    <li><%= link_to "Authorise with dropbox", dropbox_authorize_path %></li>
+    <% else %>
+    <div class="panel">
+    <div id="dropbox-messages">
+     
+    </div>
+    <%= link_to "Unlink dropbox", dropbox_unauthorize_path, :remote => true, :confirm => 'Are you sure? (You can always re-connect Dropbox again)' %>
+      <%= form_tag({:action => :upload}, :multipart => true, :remote => true) do %>
+      <%= file_field_tag 'file' %>
+      <%=  text_field_tag 'path', params[:path] || '/' %>
+      <%= submit_tag 'Upload a file', class: 'btn btn-success'%>
+    <% end %>
+    <br >
+   
+   
+    <% @client["contents"].each do |key, value|  %>
+      <% if (key["is_dir"]) %>
+      <h4><%= key["path"][1..-1]%>  <%= "<div class='glyphicon glyphicon-folder-open'></div> ".html_safe %> &nbsp;</h4>
+       
+        <%changeDirectory(@client,key["path"])%>
+        <% @client2["contents"].each do |key1, value1| %>
+            <aside class="col-md-8",id="nestedform">
+    
+             <%= key1["path"][1..-1]%>  
+            <%= link_to "[#{key1["size"]} <div class='glyphicon glyphicon-cloud-download'></div>]".html_safe, dropbox_download_path(path: key1["path"]), :target => "_blank" %> 
+                         </aside>
+         
+        <%end%>
+     
+    <%else %>
+      <%= key["path"][1..-1]%> &nbsp;  
+      <%= link_to "[#{key["size"]} <div class='glyphicon glyphicon-cloud-download'></div>]".html_safe, dropbox_download_path(path: key["path"]), :target => "_blank" %> 
+    <%end%>
+    <br/>
+    <%end%>
+    <%end%>
+      <% unless params[:path] == '/' || params[:path] == nil %>
+      <% new_path = params[:path][0..(params[:path].rindex(params[:path].split('/')[-1])) - 1 ] %>
+      <%= link_to "Go back", dropbox_path_change_path(path: new_path) , remote: true%>
+  <% end %>
+ </div>
+ 
+
+</div
