@@ -1,7 +1,7 @@
 == README
 This app was developed for our CS3031 Advanced Telecommunication. Overall intent of the app was to encrypt the files 
 before uploading to Dropbox and only users in the shared group can decrypt the file.
-Main features are users to:- 
+===Main features are users to:- 
 
 * Connect to dropbox
 
@@ -9,4 +9,9 @@ Main features are users to:-
 
 * Share files with users of the app so that they can decrypt the file. Any one outside group can not decrpt
 
-##imple
+===Implementation
+* Every user has a public and private key
+
+* Files are encrypted using a symmetric key 
+
+* To share files, the symmetric key is encrypted with the public key of the user.
