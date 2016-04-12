@@ -1,28 +1,17 @@
 == README
+This app was developed for our CS3031 Advanced Telecommunication. Overall intent of the app was to encrypt the files 
+before uploading to Dropbox and only users in the shared group can decrypt the file.
+====Main features are users can:- 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Connect to dropbox - download and upload files
 
-Things you may want to cover:
+* Encrypt files before uploading files to Dropbox
 
-* Ruby version
+* Share files with users of the app so that they can decrypt the file. Any one outside group can not decrpt
 
-* System dependencies
+====Implementation
+* Every user has a public and private key
 
-* Configuration
+* Files are encrypted using a symmetric key 
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* To share files, the symmetric key is encrypted with the public key of the user.
