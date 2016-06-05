@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 user_list = [
-  [  'Example Jo' ,'xavierj@tcd.ie','password',true],
-  [ "Jibin xavier", 'jibinxavier96@gmail.com','password' ,false],
+  [  'Example Jo' ,'kl@tcd.ie','password',true],
+  [ "Jibin xavier", 'jhbk@gmail.com','password' ,false],
   
 ]
  
